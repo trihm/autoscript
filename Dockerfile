@@ -1,8 +1,8 @@
-FROM ubuntu:latest
+FROM codeception/codeception
 
-RUN apt-get update && apt-get install -y at
-ADD entry.sh /entry.sh
+RUN apt update && apt install -y --no-install-recommends at
+ENTRYPOINT []
 WORKDIR /opt
-COPY test.sh .
-CMD ["/entry.sh"]
-RUN at now + 10 minutes -f test.sh
+COPY script1.sh .
+COPY script1-a.sh .
+COPY script2.sh .
